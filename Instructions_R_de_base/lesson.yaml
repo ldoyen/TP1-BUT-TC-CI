@@ -313,11 +313,12 @@
   Output: La réponse est TRUE. En conséquence, TRUE et 1 sont bien égaux ! Il en est de même pour FALSE et 0.
 
 
+
 - Class: exact_question
-  Output: Vous allez maintenant valider cette première leçon sur Google Forms afin que votre enseignant sache que vous avez réalisé votre leçon 1 du TP 1. Quel est votre groupe ?
+  Output: Vous allez maintenant valider cette première leçon sur Google Forms afin que votre enseignant sache que vous avez réalisé votre leçon 1 du TP 1. Quel est votre groupe (A ou B en majuscule) ?
   CorrectAnswer: NULL
   AnswerTests: submit_log()
-  Hint: Tapez votre numéro de groupe entre 1 et 5 et appuyez sur la touche Entrée.
+  Hint: Tapez votre groupe entre A ou B et appuyez sur la touche Entrée.
 
 - Class: mult_question
   Output: Swirl a ouvert une page Google Form dans votre navigateur web. Vous devez valider cette page (sans rien y modifier) en appuyant sur le bouton ENVOYER.

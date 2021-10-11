@@ -33,7 +33,7 @@ cmoninit <- function(){
 submit_log <- function(){
   res<-FALSE
   selection <- getState()$val
-if(selection %in% 1:5){
+if(selection %in% c("A","B")){
   res<-TRUE
 
   demande_num<-"Quel est votre num\xE9ro d'\xE9tudiant ? "
@@ -45,18 +45,12 @@ if(selection %in% 1:5){
   prenom_etud <- readline(demande_prenom)
 
   # Please edit the link below
-  pre_fill_link1 <- "https://docs.google.com/forms/d/e/1FAIpQLSedErETojgRotoYLiI8ynXy6pcg7n_zMHOm40IJuBP5Ucm7Aw/viewform?usp=pp_url&entry.396843662="
-  pre_fill_link2 <- "https://docs.google.com/forms/d/e/1FAIpQLSd1F_R0PF2TlNGt2fWokYQXXHI04VUmGuXAt28Zg3dLtrkZvw/viewform?usp=pp_url&entry.1337846868="
-  pre_fill_link3 <- "https://docs.google.com/forms/d/e/1FAIpQLScu_WmWluTBJQm7sJXyVVkb0WM0W2RyhAUE6ZQYA77HgilMzw/viewform?usp=pp_url&entry.419018389="
-  pre_fill_link4 <- "https://docs.google.com/forms/d/e/1FAIpQLScii7wiYhvVPqXJUwtoLmEuKitUDWBpk1tzJwNI050nq1XD5g/viewform?usp=pp_url&entry.1843359488="
-  pre_fill_link5 <- "https://docs.google.com/forms/d/e/1FAIpQLSeALcMgvPVUbOglitGCfmLWEc5NaKk3Cp1dVhJvE2fZtedNcA/viewform?usp=pp_url&entry.1206664424="
+  pre_fill_link1 <- "https://docs.google.com/forms/d/e/1FAIpQLSftfsQns1pu6hZrqKXH2wvjDpQk6i4df2yICSxeUcmn6Y6Mmw/viewform?usp=pp_url&entry.396843662="
+  pre_fill_link2 <- "https://docs.google.com/forms/d/e/1FAIpQLSc30nucHFksi6NiB_mNP-NlgUPBajN1kBdx5t3A7pLyVHuE4A/viewform?usp=pp_url&entry.396843662="
 
   pre_fill_link <- switch(selection,
-    pre_fill_link1,
-    pre_fill_link2,
-    pre_fill_link3,
-    pre_fill_link4,
-    pre_fill_link5
+    A=pre_fill_link1,
+    B=pre_fill_link2
   )
 
   # Do not edit the code below
@@ -87,8 +81,8 @@ if(selection %in% 1:5){
   browseURL(e$url_googleForm)
 
   e <- get("e", parent.frame())
-    if(selection %in% c(4,5)) e$adresse_email<-"laurent.doyen@univ-grenoble-alpes.fr" else e$adresse_email<-"marie-jose.marcoux@univ-grenoble-alpes.fr"
-    e$sujet_email<-paste0("**TP1-TC-CI-2A-**"," G",selection,", ",log_$lesson_name,", ", nom_etud,collapse="")
+    e$adresse_email<-"laurent.doyen@univ-grenoble-alpes.fr" 
+    e$sujet_email<-paste0("**TP1-BUT1-CI-**"," G",selection,", ",log_$lesson_name,", ", nom_etud,collapse="")
     e$corp_email<-encoded_log
   }
   return(res)
@@ -122,7 +116,7 @@ submit_log_alt <- function(){
   #  pre_fill_link4,
   #  pre_fill_link5
   #)
-  pre_fill_link <-"https://docs.google.com/forms/d/e/1FAIpQLScp9cm0k_HLtV80Ko0yRuWv1jhLTtbIO0IWTox08ayub4002w/viewform?usp=pp_url&entry.2086698556="
+  pre_fill_link <-"https://docs.google.com/forms/d/e/1FAIpQLSc4y26J4fqY56xc_yFZhqK2xVit7xh5zxg5jbkaC0DZAlZOlQ/viewform?usp=pp_url&entry.396843662="
 
   # Do not edit the code below
   if(!grepl("=$", pre_fill_link)){
@@ -154,12 +148,13 @@ submit_log_alt <- function(){
   e <- get("e", parent.frame())
     #if(selection %in% c(3,4,5)) e$adresse_email<-"laurent.doyen@iut2.univ-grenoble-alpes.fr" else e$adresse_email<-"marie-jose.martinez@iut2.univ-grenoble-alpes.fr"
     #e$sujet_email<-paste0("**TP1-TC-CI**"," G",selection,", ",log_$lesson_name,", ", nom_etud,collapse="")
-    e$adresse_email<-"laurent.doyen@iut2.univ-grenoble-alpes.fr"
-    e$sujet_email<-paste0("**TP1-TC-CI**"," Alt, ",log_$lesson_name,", ", nom_etud,collapse="")
+    e$adresse_email<-"marie-jose.marcoux@univ-grenoble-alpes.fr"
+    e$sujet_email<-paste0("**TP1-BUT1-**"," Alt, ",log_$lesson_name,", ", nom_etud,collapse="")
     e$corp_email<-encoded_log
   #}
   return(res)
 }
+
 
 
 googleForm_log<-function(){
